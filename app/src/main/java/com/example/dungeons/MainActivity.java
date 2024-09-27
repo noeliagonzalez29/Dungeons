@@ -198,5 +198,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onSaveInstanceState( Bundle savedInstanceState) {
         savedInstanceState.putInt(VALOR_CONTADOR,contador);
         super.onSaveInstanceState(savedInstanceState);
+
+        //si se hace volteo de pantalla tiene que guardar el total bien
+        if (savedInstanceState != null){
+            binding.numT.setText(String.valueOf(sumaT));
+        }else{
+            
+        }
     }
 }
