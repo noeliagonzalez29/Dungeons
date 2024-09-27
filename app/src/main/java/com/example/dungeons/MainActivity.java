@@ -22,7 +22,16 @@ public class MainActivity extends AppCompatActivity {
     public int contador100;
     public int sumaT;
     ActivityMainBinding binding;
+    //constantes para guardar el estado
     public static final String VALOR_CONTADOR= "Valor del contador";
+    public static final String VALOR_CONTADOR6 = "ValorContador6";
+    public static final String VALOR_CONTADOR8 = "ValorContador8";
+    public static final String VALOR_CONTADOR10 = "ValorContador10";
+    public static final String VALOR_CONTADOR12 = "ValorContador12";
+    public static final String VALOR_CONTADOR20 = "ValorContador20";
+    public static final String VALOR_CONTADOR100 = "ValorContador100";
+    public static final String VALOR_SUMAT = "ValorSumaT";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,11 +39,34 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
         if (savedInstanceState != null) {
             contador = savedInstanceState.getInt(VALOR_CONTADOR);
-            binding.numT.setText(String.valueOf(contador));
+            contador6 = savedInstanceState.getInt(VALOR_CONTADOR6);
+            contador8 = savedInstanceState.getInt(VALOR_CONTADOR8);
+            contador10 = savedInstanceState.getInt(VALOR_CONTADOR10);
+            contador12 = savedInstanceState.getInt(VALOR_CONTADOR12);
+            contador20 = savedInstanceState.getInt(VALOR_CONTADOR20);
+            contador100 = savedInstanceState.getInt(VALOR_CONTADOR100);
+            sumaT = savedInstanceState.getInt(VALOR_SUMAT);
+
+            //Actualización
+            binding.numTiradas.setText(String.valueOf(contador));
+            binding.numTiradas6.setText(String.valueOf(contador6));
+            binding.numTir8.setText(String.valueOf(contador8));
+            binding.numTir10.setText(String.valueOf(contador10));
+            binding.numTir12.setText(String.valueOf(contador12));
+            binding.numTira20.setText(String.valueOf(contador20));
+            binding.numTir100.setText(String.valueOf(contador100));
+            binding.numT.setText(String.valueOf(sumaT));
         } else {
             contador = 0;
+            contador6 = 0;
+            contador8 = 0;
+            contador10 = 0;
+            contador12 = 0;
+            contador20 = 0;
+            contador100 = 0;
+            sumaT = 0;
         }
-        contador = 0;
+        //contador = 0;
         //ACCIONES PARA DADO D4
         binding.d4.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -196,14 +228,19 @@ public class MainActivity extends AppCompatActivity {
     }
     @Override
     protected void onSaveInstanceState( Bundle savedInstanceState) {
-        savedInstanceState.putInt(VALOR_CONTADOR,contador);
+
         super.onSaveInstanceState(savedInstanceState);
 
-        //si se hace volteo de pantalla tiene que guardar el total bien
-        if (savedInstanceState != null){
-            binding.numT.setText(String.valueOf(sumaT));
-        }else{
-            
-        }
+        //Guardo
+        savedInstanceState.putInt(VALOR_CONTADOR,contador);
+        savedInstanceState.putInt(VALOR_CONTADOR6, contador6);
+        savedInstanceState.putInt(VALOR_CONTADOR8, contador8);
+        savedInstanceState.putInt(VALOR_CONTADOR10, contador10);
+        savedInstanceState.putInt(VALOR_CONTADOR12, contador12);
+        savedInstanceState.putInt(VALOR_CONTADOR20, contador20);
+        savedInstanceState.putInt(VALOR_CONTADOR100, contador100);
+        savedInstanceState.putInt(VALOR_SUMAT, sumaT);
+
+
     }
 }
